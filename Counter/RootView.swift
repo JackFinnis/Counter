@@ -41,10 +41,10 @@ struct RootView: View {
                     }
                 } label: {
                     Image(systemName: "questionmark.circle")
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .padding()
                 }
+                .font(.title)
+                .foregroundColor(.white)
+                .padding()
             }
             .onShake {
                 if count != 0 {
