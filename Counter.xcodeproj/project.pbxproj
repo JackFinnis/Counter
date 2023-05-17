@@ -12,6 +12,12 @@
 		0402C6892A13F2A500238C51 /* ShakeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402C6882A13F2A500238C51 /* ShakeDetector.swift */; };
 		0402C68B2A14348800238C51 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402C68A2A14348800238C51 /* RootView.swift */; };
 		0402C68D2A1434A500238C51 /* TwoFingerTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402C68C2A1434A500238C51 /* TwoFingerTapView.swift */; };
+		0402C6952A158CF300238C51 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402C6942A158CF300238C51 /* Constants.swift */; };
+		0402C6972A158D2600238C51 /* Emails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402C6962A158D2600238C51 /* Emails.swift */; };
+		0402C6992A158D3800238C51 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402C6982A158D3800238C51 /* Haptics.swift */; };
+		0402C69B2A158D4600238C51 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402C69A2A158D4600238C51 /* Store.swift */; };
+		0402C69D2A158D6200238C51 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402C69C2A158D6200238C51 /* ShareView.swift */; };
+		0402C69F2A158D6D00238C51 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402C69E2A158D6D00238C51 /* EmailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +27,12 @@
 		0402C6882A13F2A500238C51 /* ShakeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeDetector.swift; sourceTree = "<group>"; };
 		0402C68A2A14348800238C51 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		0402C68C2A1434A500238C51 /* TwoFingerTapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoFingerTapView.swift; sourceTree = "<group>"; };
+		0402C6942A158CF300238C51 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0402C6962A158D2600238C51 /* Emails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emails.swift; sourceTree = "<group>"; };
+		0402C6982A158D3800238C51 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		0402C69A2A158D4600238C51 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		0402C69C2A158D6200238C51 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		0402C69E2A158D6D00238C51 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,13 +65,51 @@
 		0402C6792A13EB6600238C51 /* Counter */ = {
 			isa = PBXGroup;
 			children = (
+				0402C6902A158C6200238C51 /* Views */,
+				0402C6922A158C7800238C51 /* Helpers */,
+				0402C6932A158C7E00238C51 /* Resources */,
+			);
+			path = Counter;
+			sourceTree = "<group>";
+		};
+		0402C6902A158C6200238C51 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				0402C67A2A13EB6600238C51 /* CounterApp.swift */,
 				0402C68A2A14348800238C51 /* RootView.swift */,
 				0402C68C2A1434A500238C51 /* TwoFingerTapView.swift */,
+				0402C6912A158C6700238C51 /* Extra */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0402C6912A158C6700238C51 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				0402C69E2A158D6D00238C51 /* EmailView.swift */,
+				0402C69C2A158D6200238C51 /* ShareView.swift */,
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
+		0402C6922A158C7800238C51 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0402C6942A158CF300238C51 /* Constants.swift */,
+				0402C6962A158D2600238C51 /* Emails.swift */,
+				0402C6982A158D3800238C51 /* Haptics.swift */,
 				0402C6882A13F2A500238C51 /* ShakeDetector.swift */,
+				0402C69A2A158D4600238C51 /* Store.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0402C6932A158C7E00238C51 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				0402C67E2A13EB6700238C51 /* Assets.xcassets */,
 			);
-			path = Counter;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,10 +181,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0402C6992A158D3800238C51 /* Haptics.swift in Sources */,
+				0402C6972A158D2600238C51 /* Emails.swift in Sources */,
+				0402C6952A158CF300238C51 /* Constants.swift in Sources */,
+				0402C69B2A158D4600238C51 /* Store.swift in Sources */,
 				0402C6892A13F2A500238C51 /* ShakeDetector.swift in Sources */,
 				0402C67B2A13EB6600238C51 /* CounterApp.swift in Sources */,
+				0402C69D2A158D6200238C51 /* ShareView.swift in Sources */,
 				0402C68D2A1434A500238C51 /* TwoFingerTapView.swift in Sources */,
 				0402C68B2A14348800238C51 /* RootView.swift in Sources */,
+				0402C69F2A158D6D00238C51 /* EmailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
