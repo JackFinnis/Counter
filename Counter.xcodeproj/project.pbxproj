@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0402C67B2A13EB6600238C51 /* CounterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402C67A2A13EB6600238C51 /* CounterApp.swift */; };
 		0402C67F2A13EB6700238C51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0402C67E2A13EB6700238C51 /* Assets.xcassets */; };
-		0402C6892A13F2A500238C51 /* ShakeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402C6882A13F2A500238C51 /* ShakeDetector.swift */; };
 		0402C68B2A14348800238C51 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402C68A2A14348800238C51 /* RootView.swift */; };
 		0402C68D2A1434A500238C51 /* TwoFingerTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402C68C2A1434A500238C51 /* TwoFingerTapView.swift */; };
 		0402C6952A158CF300238C51 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402C6942A158CF300238C51 /* Constants.swift */; };
@@ -24,7 +23,6 @@
 		0402C6772A13EB6600238C51 /* Counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Counter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0402C67A2A13EB6600238C51 /* CounterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterApp.swift; sourceTree = "<group>"; };
 		0402C67E2A13EB6700238C51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0402C6882A13F2A500238C51 /* ShakeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeDetector.swift; sourceTree = "<group>"; };
 		0402C68A2A14348800238C51 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		0402C68C2A1434A500238C51 /* TwoFingerTapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoFingerTapView.swift; sourceTree = "<group>"; };
 		0402C6942A158CF300238C51 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 				0402C6942A158CF300238C51 /* Constants.swift */,
 				0402C6962A158D2600238C51 /* Emails.swift */,
 				0402C6982A158D3800238C51 /* Haptics.swift */,
-				0402C6882A13F2A500238C51 /* ShakeDetector.swift */,
 				0402C69A2A158D4600238C51 /* Store.swift */,
 			);
 			path = Helpers;
@@ -185,7 +182,6 @@
 				0402C6972A158D2600238C51 /* Emails.swift in Sources */,
 				0402C6952A158CF300238C51 /* Constants.swift in Sources */,
 				0402C69B2A158D4600238C51 /* Store.swift in Sources */,
-				0402C6892A13F2A500238C51 /* ShakeDetector.swift in Sources */,
 				0402C67B2A13EB6600238C51 /* CounterApp.swift in Sources */,
 				0402C69D2A158D6200238C51 /* ShareView.swift in Sources */,
 				0402C68D2A1434A500238C51 /* TwoFingerTapView.swift in Sources */,
