@@ -9,26 +9,53 @@ import SwiftUI
 import MessageUI
 
 struct RootView: View {
+    @Environment(\.colorScheme) var colorScheme
     @AppStorage("count") var count = 0
     @State var showShareSheet = false
     @State var showEmailSheet = false
     
+    @State var flashUp = false
+    @State var flashDown = false
+    @AppStorage("shouldFlash") var shouldFlash = true
+    @AppStorage("shouldTap") var shouldTap = true
+    
+    var color: Color { .primary }
+    
     var body: some View {
-        Color.indigo.ignoresSafeArea()
+        Color(flashUp ? .systemGreen : (flashDown ? .systemRed : .systemBackground)).ignoresSafeArea()
+            .opacity(colorScheme == .light ? 1 : 0.4)
+            .animation(.default, value: flashUp)
+            .animation(.default, value: flashDown)
             .overlay {
                 Text(String(count))
-                    .font(.system(size: 200).weight(.bold).monospaced())
-                    .foregroundColor(.white)
+                    .font(.system(size: 150).weight(.semibold).monospacedDigit())
+                    .foregroundColor(color)
             }
             .overlay {
                 TwoFingerTapView {
-                    if count != 0 {
-                        count -= 1
+                    count -= 1
+                    if shouldTap {
+                        Haptics.tap()
+                    }
+                    if shouldFlash {
+                        flashDown = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                            flashDown = false
+                        }
                     }
                 }
             }
             .onTapGesture(count: 1) {
                 count += 1
+                if shouldTap {
+                    Haptics.tap()
+                }
+                if shouldFlash {
+                    flashUp = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                        flashUp = false
+                    }
+                }
             }
             .overlay(alignment: .top) {
                 HStack {
@@ -69,26 +96,32 @@ struct RootView: View {
                     Spacer()
                     Button("Reset") {
                         count = 0
-                        Haptics.tap()
+                        Haptics.success()
                     }
                     .font(.title2)
                     
                     Spacer()
                     Menu {
-                        Button {} label: {
+                        Section {
                             Label("Tap with one finger to increment", systemImage: "circlebadge")
-                        }
-                        Button {} label: {
                             Label("Tap with two fingers to decrement", systemImage: "circle.grid.2x1")
+                        }
+                        Section {
+                            Toggle(isOn: $shouldFlash) {
+                                Label("Flash on tap", systemImage: "rays")
+                            }
+                            Toggle(isOn: $shouldTap) {
+                                Label("Vibrate on tap", systemImage: "iphone.radiowaves.left.and.right")
+                            }
                         }
                     } label: {
                         Image(systemName: "questionmark.circle")
                     }
                     .font(.title)
                 }
-                .foregroundColor(.white)
                 .padding(.top)
                 .padding(.horizontal, 20)
+                .foregroundColor(color)
             }
             .shareSheet(url: Constants.appUrl, showsSharedAlert: true, isPresented: $showShareSheet)
             .emailSheet(recipient: Constants.email, subject: "\(Constants.name) Feedback", isPresented: $showEmailSheet)
