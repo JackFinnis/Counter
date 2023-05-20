@@ -22,16 +22,17 @@ struct RootView: View {
     var color: Color { .primary }
     
     var body: some View {
-        Color(flashUp ? .systemGreen : (flashDown ? .systemRed : .systemBackground)).ignoresSafeArea()
-            .opacity(colorScheme == .light ? 1 : 0.4)
-            .animation(.default, value: flashUp)
-            .animation(.default, value: flashDown)
-            .overlay {
+        NavigationView {
+            ZStack {
+                Color(flashUp ? .systemGreen : (flashDown ? .systemRed : .systemBackground)).ignoresSafeArea()
+                    .opacity(colorScheme == .light ? 1 : 0.4)
+                    .animation(.default, value: flashUp)
+                    .animation(.default, value: flashDown)
+                
                 Text(String(count))
                     .font(.system(size: 150).weight(.semibold).monospacedDigit())
                     .foregroundColor(color)
-            }
-            .overlay {
+                
                 TwoFingerTapView {
                     count -= 1
                     if shouldTap {
@@ -44,24 +45,43 @@ struct RootView: View {
                         }
                     }
                 }
-            }
-            .onTapGesture(count: 1) {
-                count += 1
-                if shouldTap {
-                    Haptics.tap()
-                }
-                if shouldFlash {
-                    flashUp = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                        flashUp = false
+                .onTapGesture(count: 1) {
+                    count += 1
+                    if shouldTap {
+                        Haptics.tap()
+                    }
+                    if shouldFlash {
+                        flashUp = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                            flashUp = false
+                        }
                     }
                 }
             }
-            .overlay(alignment: .top) {
-                HStack {
+            .ignoresSafeArea()
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Menu {
+                        Section {
+                            Label("Tap with one finger to increment", systemImage: "circlebadge")
+                            Label("Tap with two fingers to decrement", systemImage: "circle.grid.2x1")
+                        }
+                        Section {
+                            Toggle(isOn: $shouldFlash) {
+                                Label("Flash on tap", systemImage: "rays")
+                            }
+                            Toggle(isOn: $shouldTap) {
+                                Label("Vibrate on tap", systemImage: "iphone.radiowaves.left.and.right")
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "questionmark.circle")
+                    }
+                }
+                ToolbarItem(placement: .principal) {
                     Menu {
                         Button {
-                            showShareSheet.toggle()
+                            showShareSheet = true
                         } label: {
                             Label("Share \(Constants.name)", systemImage: "square.and.arrow.up")
                         }
@@ -89,42 +109,27 @@ struct RootView: View {
                             }
                         }
                     } label: {
-                        Image(systemName: "info.circle")
+                        HStack {
+                            Text(Constants.name)
+                                .font(.headline)
+                            MenuChevron()
+                        }
+                        .foregroundColor(.primary)
                     }
-                    .font(.title)
-                    
-                    Spacer()
-                    Button("Reset") {
+                }
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
                         count = 0
                         Haptics.success()
-                    }
-                    .font(.title2)
-                    
-                    Spacer()
-                    Menu {
-                        Section {
-                            Label("Tap with one finger to increment", systemImage: "circlebadge")
-                            Label("Tap with two fingers to decrement", systemImage: "circle.grid.2x1")
-                        }
-                        Section {
-                            Toggle(isOn: $shouldFlash) {
-                                Label("Flash on tap", systemImage: "rays")
-                            }
-                            Toggle(isOn: $shouldTap) {
-                                Label("Vibrate on tap", systemImage: "iphone.radiowaves.left.and.right")
-                            }
-                        }
                     } label: {
-                        Image(systemName: "questionmark.circle")
+                        Image(systemName: "arrow.counterclockwise")
                     }
-                    .font(.title)
                 }
-                .padding(.top)
-                .padding(.horizontal, 20)
-                .foregroundColor(color)
             }
-            .shareSheet(url: Constants.appUrl, showsSharedAlert: true, isPresented: $showShareSheet)
-            .emailSheet(recipient: Constants.email, subject: "\(Constants.name) Feedback", isPresented: $showEmailSheet)
+        }
+        .shareSheet(url: Constants.appUrl, showsSharedAlert: true, isPresented: $showShareSheet)
+        .emailSheet(recipient: Constants.email, subject: "\(Constants.name) Feedback", isPresented: $showEmailSheet)
+        .navigationViewStyle(.stack)
     }
 }
 
