@@ -25,7 +25,7 @@ struct RootView: View {
         NavigationView {
             ZStack {
                 Color(flashUp ? .systemGreen : (flashDown ? .systemRed : .systemBackground)).ignoresSafeArea()
-                    .opacity(colorScheme == .light ? 1 : 0.4)
+                    .opacity(colorScheme == .light ? 1 : 0.3)
                     .animation(.default, value: flashUp)
                     .animation(.default, value: flashDown)
                 
@@ -83,12 +83,12 @@ struct RootView: View {
                         Button {
                             showShareSheet = true
                         } label: {
-                            Label("Share \(Constants.name)", systemImage: "square.and.arrow.up")
+                            Label("Share the App", systemImage: "square.and.arrow.up")
                         }
                         Button {
                             Store.requestRating()
                         } label: {
-                            Label("Rate \(Constants.name)", systemImage: "star")
+                            Label("Rate the App", systemImage: "star")
                         }
                         Button {
                             Store.writeReview()
@@ -116,6 +116,7 @@ struct RootView: View {
                         }
                         .foregroundColor(.primary)
                     }
+                    .sharePopover(url: Constants.appUrl, showsSharedAlert: true, isPresented: $showShareSheet)
                 }
                 ToolbarItem(placement: .primaryAction) {
                     Button {
@@ -127,7 +128,6 @@ struct RootView: View {
                 }
             }
         }
-        .shareSheet(url: Constants.appUrl, showsSharedAlert: true, isPresented: $showShareSheet)
         .emailSheet(recipient: Constants.email, subject: "\(Constants.name) Feedback", isPresented: $showEmailSheet)
         .navigationViewStyle(.stack)
     }
