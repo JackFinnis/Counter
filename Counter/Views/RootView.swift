@@ -19,8 +19,6 @@ struct RootView: View {
     @AppStorage("shouldFlash") var shouldFlash = true
     @AppStorage("shouldTap") var shouldTap = true
     
-    var color: Color { .primary }
-    
     var body: some View {
         NavigationView {
             ZStack {
@@ -31,7 +29,6 @@ struct RootView: View {
                 
                 Text(String(count))
                     .font(.system(size: 150).weight(.semibold).monospacedDigit())
-                    .foregroundColor(color)
                 
                 TwoFingerTapView {
                     count -= 1
@@ -81,14 +78,14 @@ struct RootView: View {
                 ToolbarItem(placement: .principal) {
                     Menu {
                         Button {
-                            showShareSheet = true
+                            showShareSheet.toggle()
                         } label: {
-                            Label("Share the App", systemImage: "square.and.arrow.up")
+                            Label("Share \(Constants.name)", systemImage: "square.and.arrow.up")
                         }
                         Button {
                             Store.requestRating()
                         } label: {
-                            Label("Rate the App", systemImage: "star")
+                            Label("Rate \(Constants.name)", systemImage: "star")
                         }
                         Button {
                             Store.writeReview()
@@ -112,9 +109,9 @@ struct RootView: View {
                         HStack {
                             Text(Constants.name)
                                 .font(.headline)
+                                .foregroundColor(.primary)
                             MenuChevron()
                         }
-                        .foregroundColor(.primary)
                     }
                     .sharePopover(url: Constants.appUrl, showsSharedAlert: true, isPresented: $showShareSheet)
                 }
