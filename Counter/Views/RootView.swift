@@ -113,7 +113,7 @@ struct RootView: View {
                             MenuChevron()
                         }
                     }
-                    .sharePopover(url: Constants.appUrl, showsSharedAlert: true, isPresented: $showShareSheet)
+                    .sharePopover(items: [Constants.appUrl], showsSharedAlert: true, isPresented: $showShareSheet)
                 }
                 ToolbarItem(placement: .primaryAction) {
                     Button {
