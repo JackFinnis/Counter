@@ -93,12 +93,20 @@ struct RootView: View {
                         count = 0
                         Haptics.success()
                     }
+                    .disabled(count == 0)
+                    .buttonStyle(.borderedProminent)
+                    .buttonBorderShape(.capsule)
+                    .font(.headline)
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Menu("Help") {
                         Text("Tap on the right increment")
                         Text("Tap on the left decrement")
                     }
+                    .menuStyle(.button)
+                    .buttonStyle(.bordered)
+                    .buttonBorderShape(.capsule)
+                    .font(.headline)
                 }
             }
         }
