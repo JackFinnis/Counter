@@ -100,8 +100,18 @@ struct RootView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Menu("Help") {
-                        Text("Tap on the right increment")
-                        Text("Tap on the left decrement")
+                        ControlGroup {
+                            Label {
+                                Text("Tap on the left to decrement")
+                            } icon: {
+                                getIcon(color: .red)
+                            }
+                            Label {
+                                Text("Tap on the right to increment")
+                            } icon: {
+                                getIcon(color: .green)
+                            }
+                        }
                     }
                     .menuStyle(.button)
                     .buttonStyle(.bordered)
@@ -110,6 +120,10 @@ struct RootView: View {
                 }
             }
         }
+    }
+    
+    func getIcon(color: Color) -> Image {
+        Image(uiImage: UIImage(systemName: "circle.fill", withConfiguration: UIImage.SymbolConfiguration(hierarchicalColor: UIColor(color.opacity(0.5))))!)
     }
 }
 
