@@ -10,5 +10,5 @@ import Foundation
 struct Constants {
     static let name = "Counter"
     static let email = "jack.finnis@icloud.com"
-    static let appUrl = URL(string: "https://apps.apple.com/gb/app/counter-simple/id6458223404")!
+    static let appURL = URL(string: "https://apps.apple.com/app/id6458223404")!
 }
