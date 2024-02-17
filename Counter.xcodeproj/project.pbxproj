@@ -13,6 +13,8 @@
 		0402C6972A158D2600238C51 /* Emails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402C6962A158D2600238C51 /* Emails.swift */; };
 		0402C6992A158D3800238C51 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402C6982A158D3800238C51 /* Haptics.swift */; };
 		0402C69B2A158D4600238C51 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402C69A2A158D4600238C51 /* Store.swift */; };
+		045B92FA2B8034DA002ED01B /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B92F92B8034DA002ED01B /* UIFont.swift */; };
+		045B92FC2B8034FA002ED01B /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B92FB2B8034FA002ED01B /* CounterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		0402C6962A158D2600238C51 /* Emails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emails.swift; sourceTree = "<group>"; };
 		0402C6982A158D3800238C51 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		0402C69A2A158D4600238C51 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		045B92F92B8034DA002ED01B /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		045B92FB2B8034FA002ED01B /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +60,10 @@
 			isa = PBXGroup;
 			children = (
 				0402C67A2A13EB6600238C51 /* CounterApp.swift */,
+				045B92FB2B8034FA002ED01B /* CounterView.swift */,
 				0402C6922A158C7800238C51 /* Helpers */,
 				0402C6932A158C7E00238C51 /* Resources */,
+				045B92F82B8034D0002ED01B /* Extensions */,
 			);
 			path = Counter;
 			sourceTree = "<group>";
@@ -79,6 +85,14 @@
 				0402C67E2A13EB6700238C51 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		045B92F82B8034D0002ED01B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				045B92F92B8034DA002ED01B /* UIFont.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +166,8 @@
 			files = (
 				0402C6992A158D3800238C51 /* Haptics.swift in Sources */,
 				0402C6972A158D2600238C51 /* Emails.swift in Sources */,
+				045B92FA2B8034DA002ED01B /* UIFont.swift in Sources */,
+				045B92FC2B8034FA002ED01B /* CounterView.swift in Sources */,
 				0402C6952A158CF300238C51 /* Constants.swift in Sources */,
 				0402C69B2A158D4600238C51 /* Store.swift in Sources */,
 				0402C67B2A13EB6600238C51 /* CounterApp.swift in Sources */,
