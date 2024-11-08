@@ -51,14 +51,15 @@ struct CounterView: View {
             }
             .ignoresSafeArea()
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
+                ToolbarItem(placement: .principal) {
                     Button("Reset") {
                         down = count > 0
                         count = 0
                         Haptics.success()
                     }
+                    .foregroundStyle(.background)
                     .disabled(count == 0)
-                    .buttonStyle(.bordered)
+                    .buttonStyle(.borderedProminent)
                     .buttonBorderShape(.capsule)
                     .font(.headline)
                 }
